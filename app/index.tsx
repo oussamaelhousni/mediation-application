@@ -5,7 +5,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "@/components/CustomButton";
 import { StatusBar } from "expo-status-bar";
+import { useRouter } from "expo-router";
 const App = () => {
+  const router = useRouter();
   return (
     <View className="grow flex">
       <ImageBackground source={beachImage} resizeMode="cover" className="grow">
@@ -25,7 +27,7 @@ const App = () => {
             <View>
               <CustomButton
                 title="Get started"
-                onPress={() => console.log("hi2")}
+                onPress={() => router.push("/nature-meditate")}
               />
             </View>
             <StatusBar style="light" />
