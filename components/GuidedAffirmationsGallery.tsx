@@ -26,7 +26,7 @@ const GuidedAffirmationsGallery = ({
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => {
             return (
-              <Link href={`/affirmattions/${item.id}`} asChild>
+              <Link href={`/affirmations/${item.id}`} asChild>
                 <Pressable>
                   <View className="h-36 w-32 rounded-md mr-4">
                     <Image

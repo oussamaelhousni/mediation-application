@@ -30,7 +30,6 @@ const App = () => {
                 onPress={() => router.push("/nature-meditate")}
               />
             </View>
-            <StatusBar style="light" />
           </SafeAreaView>
         </LinearGradient>
       </ImageBackground>
