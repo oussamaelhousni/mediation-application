@@ -1,4 +1,12 @@
-import { View, Text, ScrollView, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  StatusBar as statusBar,
+  SafeAreaView,
+  Platform,
+} from "react-native";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import AFFIRMATION_GALLERY from "@/constants/affiramtionGallery";
@@ -6,7 +14,12 @@ import GuidedAffirmationsGallery from "@/components/GuidedAffirmationsGallery";
 
 const affirmations = () => {
   return (
-    <View className="flex-1 " style={{ marginTop: StatusBar.currentHeight }}>
+    <SafeAreaView
+      className="flex-1"
+      style={{
+        marginTop: Platform.OS === "android" ? statusBar.currentHeight : 0,
+      }}
+    >
       <LinearGradient
         colors={["#2e1f58", "#54426b", "#a790af"]}
         className="flex-1 p-4"
@@ -27,8 +40,9 @@ const affirmations = () => {
             })}
           </View>
         </ScrollView>
+        <StatusBar style="dark" />
       </LinearGradient>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -2,7 +2,6 @@ import {
   View,
   Text,
   SafeAreaView,
-  StatusBar,
   FlatList,
   Pressable,
   ImageBackground,
@@ -12,6 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import { MEDITATION_DATA } from "@/constants/meditationData";
 import MEDITATION_IMAGES from "@/constants/meditationImages";
+import { Href, router } from "expo-router";
 const NatureMeditate = () => {
   console.log("data", MEDITATION_DATA);
   return (
@@ -39,7 +39,9 @@ const NatureMeditate = () => {
               renderItem={({ item }) => (
                 <Pressable
                   className="h-48 my-3 rounded-md  overflow-hidden"
-                  onPress={() => console.log("onpress")}
+                  onPress={() =>
+                    router.push(`/meditate/${item.id.toString()}` as Href)
+                  }
                 >
                   <ImageBackground
                     source={MEDITATION_IMAGES[item.id - 1]}
